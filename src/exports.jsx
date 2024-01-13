@@ -1,0 +1,12 @@
+export { default as Header } from "./layout/Header";
+export { default as Footer } from "./layout/Footer";
+export { default as Home } from "./Website/Home";
+export { default as Posts } from "./Posts/Posts";
+export { default as Gallery } from "./Gallery/Gallery";
+export { default as Add } from "./Posts/Add";
+export { default as Edit } from "./Posts/Edit";
+export { default as Details } from "./Posts/Details";
+export { default as Ecommerce } from "./Ecommerce/Ecommerce";
+export { default as ProductDetails } from "./Ecommerce/ProductDetails";
+export { default as Todo } from "./Todos/Todo";
+export { default as Loading } from "./layout/Loading";

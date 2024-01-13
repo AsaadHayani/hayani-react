@@ -1,0 +1,20 @@
+.gal {
+  background: #e6e6e6;
+}
+img {
+  transition: 0.5s;
+}
+.img {
+  border: 2px solid black;
+}
+img:hover {
+  transform: scale(1.1);
+}
+.arrows i {
+  margin-right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.arrows i:hover {
+  transform: scale(1.3);
+}

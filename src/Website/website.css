@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  overflow: overlay;
+}
+.heading h2 {
+  color: var(--main-color);
+  font-size: 40px;
+}
+hr {
+  display: block;
+  border: 1px solid var(--main-color);
+}
+.btn-site {
+  background-color: var(--main-color);
+  border: none;
+  scale: 1.1;
+  transition: 0.5s;
+}
+.btn-site:hover {
+  background-color: var(--btn-hover);
+  transform: scale(1.1);
+}
+img {
+  border-radius: 5px;
+  cursor: pointer;
+}
+.header {
+  height: 550px;
+  background-image: url(https://images.pexels.com/photos/2653362/pexels-photo-2653362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-size: cover;
+  background-position: center;
+}
+.header .info h2 {
+  margin-top: 80px;
+}
+.header .info p {
+  font-size: 22px;
+  letter-spacing: 4px;
+  color: #bbb;
+}
+.about {
+  color: #777;
+  background: #e6e6e6;
+}
+.about img {
+  margin-left: 10px;
+  box-shadow: 0 5px 10px 0px var(--color-shadow);
+  transition: 0.5s;
+}
+.about img:hover {
+  transform: scale(1.1);
+}
+.about .info h2 {
+  color: var(--main-color);
+  font-size: 30px;
+}
+.about .info p {
+  line-height: 1.7;
+}
+.about .info ul li {
+  margin-bottom: 10px;
+}
+.about .info ul li a {
+  color: var(--main-color);
+}
+.about .info ul .fa-check {
+  color: var(--main-color);
+  margin-right: 15px;
+}
+.our-team .item {
+  background: #b0795d;
+  border-radius: 7px;
+  padding: 10px 0;
+  margin: 0 10px;
+  box-shadow: 0 5px 10px 0px var(--color-shadow);
+  transition: 0.5s;
+}
+.our-team .item:hover {
+  transform: translate(0px, -10px);
+  box-shadow: 0 20px 20px 6px var(--color-shadow);
+}
+.our-team .item img {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+.our-team .item img:hover {
+  transform: scale(1.1);
+}
+.our-team .item h4 {
+  font-weight: 500;
+}
+.our-team .item p,
+.our-team .item h4 {
+  color: var(--color-white);
+}
+.our-team .item ul {
+  display: flex;
+  justify-content: space-around;
+}
+.our-team .item ul li a {
+  color: var(--color-shadow);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.our-team .item ul li a:hover {
+  transform: scale(1.2);
+  color: var(--color-white);
+}
+.work {
+  background: #e6e6e6;
+}
+.work img {
+  width: 200px;
+  box-shadow: 0 5px 10px 0px var(--color-shadow);
+  transition: 0.5s;
+}
+.work img:hover {
+  transform: rotate(10deg);
+}
+.work .arrows i {
+  margin-right: 15px;
+  font-size: 25px;
+  color: var(--color-black);
+  transition: 0.5s;
+}
+.testimonials img {
+  height: 150px;
+  width: 150px;
+  object-fit: fill;
+  box-shadow: 0 5px 10px 0px var(--color-shadow);
+  transition: 0.5s;
+}
+.testimonials img:hover {
+  transform: rotate(-10deg);
+}
+.testimonials q {
+  color: #777;
+  line-height: 1.7;
+}
+.testimonials p {
+  color: var(--main-color);
+}
+.contact {
+  background: #e6e6e6;
+}
+.contact input {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.contact input[type="text"]:not(:last-child) {
+  margin-right: 10px;
+}
+.contact textarea {
+  width: 100%;
+  padding: 10px;
+}
+footer {
+  background-color: var(--main-color);
+}
+footer span {
+  color: var(--btn-hover);
+}
