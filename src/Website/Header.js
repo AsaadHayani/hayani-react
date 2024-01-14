@@ -13,7 +13,7 @@ const Header = () => {
         <p>Freelancer</p>
         <a
           download
-          href="./CV.pdf"
+          href="./cv.pdf"
           className="py-2 btn-site px-4 mt-2 btn text-white"
         >
           Download C.V <FontAwesomeIcon icon={faDownload} />

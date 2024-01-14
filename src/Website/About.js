@@ -17,7 +17,7 @@ const About = () => {
     },
     {
       text: "LinkedIn",
-      link: "https://www.linkedin.com/in/asaad-hayani-19308b193",
+      link: "https://www.linkedin.com/in/as3d-hayani/",
       linkText: "Asaad Hayani",
     },
     {

@@ -15,7 +15,7 @@ const OurTeam = () => {
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus id nihil sequi itaque, voluptatem nobis.",
       social: {
         facebook: "https://www.facebook.com/asaad.hayani.9/",
-        linkedin: "",
+        linkedin: "https://www.linkedin.com/in/as3d-hayani/",
         github: "https://github.com/AsaadHayani",
       },
     },
@@ -27,7 +27,7 @@ const OurTeam = () => {
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus id nihil sequi itaque, voluptatem nobis.",
       social: {
         facebook: "https://www.facebook.com/asaad.hayani.9/",
-        linkedin: "",
+        linkedin: "https://www.linkedin.com/in/as3d-hayani/",
         github: "https://github.com/AsaadHayani",
       },
     },
@@ -39,7 +39,7 @@ const OurTeam = () => {
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus id nihil sequi itaque, voluptatem nobis.",
       social: {
         facebook: "https://www.facebook.com/asaad.hayani.9/",
-        linkedin: "",
+        linkedin: "https://www.linkedin.com/in/as3d-hayani/",
         github: "https://github.com/AsaadHayani",
       },
     },
