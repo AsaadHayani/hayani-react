@@ -1,0 +1,15 @@
+.gal {
+  background: #e6e6e6;
+}
+img {
+  transition: 0.5s;
+}
+.img {
+  border: 2px solid var(--main-color);
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+img:hover {
+  transform: scale(1.1);
+}

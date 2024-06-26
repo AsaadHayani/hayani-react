@@ -1,0 +1,73 @@
+.hero {
+  height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  background-image: url(https://images.pexels.com/photos/2653362/pexels-photo-2653362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-size: cover;
+  background-position: center;
+}
+.about img {
+  box-shadow: 0 5px 10px 0px var(--color-shadow);
+}
+.about .info p {
+  line-height: 1.7;
+}
+.about .info ul li {
+  margin-bottom: 10px;
+}
+.our-team .item {
+  background-color: var(--main-color);
+  overflow: hidden;
+  box-shadow: 0 5px 10px 0px var(--color-shadow);
+  transition: 0.5s;
+}
+.our-team .item:hover {
+  transform: translate(0px, -10px);
+  box-shadow: 0 20px 20px 6px var(--color-shadow);
+}
+.our-team .item img {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+.our-team .item ul {
+  display: flex;
+}
+.our-team svg {
+  font-size: 30px;
+}
+.our-team .item ul li a {
+  color: black;
+  width: 100%;
+  text-align: center;
+  transition: 0.5s;
+}
+.our-team .item ul li a:hover {
+  color: white;
+  transform: scale(1.2);
+}
+.work img {
+  width: 200px;
+  box-shadow: 0 5px 10px 0px var(--color-shadow);
+}
+.work img:hover {
+  transform: rotate(10deg);
+}
+.work .arrows svg {
+  font-size: 30px;
+}
+.testimonials img {
+  height: 150px;
+  width: 150px;
+  object-fit: fill;
+  box-shadow: 0 5px 10px 0px var(--color-shadow);
+  border-radius: 50%;
+}
+.testimonials img:hover {
+  transform: rotate(-10deg);
+}
