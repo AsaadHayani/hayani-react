@@ -1,23 +1,20 @@
 import { Backdrop, CircularProgress } from "@mui/material";
-import { Dispatch } from "react";
 
 interface Props {
   open: boolean;
-  setOpen: Dispatch<React.SetStateAction<boolean>>;
+  setOpen: any;
 }
 
-const Loading = ({ open, setOpen }: Props) => {
-  return (
-    <div>
-      <Backdrop
-        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={open}
-        onClick={() => setOpen(open)}
-      >
-        <CircularProgress color="primary" />
-      </Backdrop>
-    </div>
-  );
-};
+const Loading = ({ open, setOpen }: Props) => (
+  <div>
+    <Backdrop
+      sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      open={open}
+      onClick={() => setOpen(open)}
+    >
+      <CircularProgress color="primary" />
+    </Backdrop>
+  </div>
+);
 
 export default Loading;

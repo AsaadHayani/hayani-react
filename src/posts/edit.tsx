@@ -35,9 +35,12 @@ const Edit = () => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
 
-    const fieldValidation = postSchema
-      .pick({ [name]: true })
-      .safeParse({ [name]: value });
+    const dynamicSchema = z.object({
+      [name]: postSchema.shape[name as keyof typeof postSchema.shape],
+    });
+
+    const fieldValidation = dynamicSchema.safeParse({ [name]: value });
+
     if (!fieldValidation.success) {
       setErrors((prevErrors) => ({
         ...prevErrors,

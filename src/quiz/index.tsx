@@ -12,8 +12,8 @@ import {
   useTheme,
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import React, { MouseEvent, useRef, useState } from "react";
-import { data } from "./data";
+import { MouseEvent, useRef, useState } from "react";
+import { data } from "./data.ts";
 
 interface QuestionProps {
   question: string;
@@ -46,19 +46,21 @@ const Quiz = () => {
 
   const optArr = [opt_1, opt_2, opt_3, opt_4];
 
-  const checkAns = (e: MouseEvent<HTMLElement>, ans: number) => {
+  const checkAns = (e: MouseEvent, ans: number) => {
+    const target = e.currentTarget as HTMLLIElement;
     if (!lock) {
       if (question.ans === ans) {
-        e.target.classList.add("correct");
+        target.classList.add("correct");
         setLock(true);
         setScore((prev) => prev + 1);
       } else {
-        e.target.classList.add("wrong");
+        target.classList.add("wrong");
         setLock(true);
         optArr[question.ans - 1].current?.classList.add("correct");
       }
     }
   };
+  // onClick={(e) => checkAns(e, ir)}
 
   const clickNext = () => {
     if (lock) {

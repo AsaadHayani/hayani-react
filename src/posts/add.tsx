@@ -1,7 +1,7 @@
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Loading from "../components/Loading";
 import { useNavigate } from "react-router-dom";
 import Success from "../components/Success";
@@ -29,13 +29,16 @@ const Add = () => {
 
   const navigate = useNavigate();
 
-  const handleFormChange = (e: any) => {
+  const handleFormChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
 
-    const fieldValidation = postSchema
-      .pick({ [name]: true })
-      .safeParse({ [name]: value });
+    const dynamicSchema = z.object({
+      [name]: postSchema.shape[name as keyof typeof postSchema.shape],
+    });
+
+    const fieldValidation = dynamicSchema.safeParse({ [name]: value });
+
     if (!fieldValidation.success) {
       setErrors((prevErrors) => ({
         ...prevErrors,
