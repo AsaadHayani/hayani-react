@@ -13,6 +13,8 @@ import Typography from "@mui/material/Typography";
 import DetailsProducts from "./products/details.tsx";
 import Footer from "./components/Footer.tsx";
 import { Box } from "@mui/material";
+import Qoute from "./qoute/index.tsx";
+import Quiz from "./quiz/index.tsx";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
             <Route index element={<Products />} />
             <Route path=":id" element={<DetailsProducts />} />
           </Route>
+          <Route path="qoute" element={<Qoute />} />
+          <Route path="quiz" element={<Quiz />} />
           <Route
             path="*"
             element={

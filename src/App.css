@@ -34,3 +34,10 @@ footer {
 footer span {
   color: var(--btn-hover);
 }
+.correct {
+  background-color: #ff250052;
+}
+.wrong {
+  background-color: #5e0000;
+  border-radius: 50%;
+}

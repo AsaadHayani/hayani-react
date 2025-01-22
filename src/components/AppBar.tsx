@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState, useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -15,23 +15,13 @@ import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material";
 import { Context } from "./Context";
 import { Brightness4, WbSunny } from "@mui/icons-material";
+import { navItems } from "./assets";
 
-interface Props {
-  window?: () => Window;
-}
+const drawerWidth: number = 240;
 
-const drawerWidth = 240;
-const navItems = [
-  { text: "Website", link: "" },
-  { text: "Products", link: "products" },
-  { text: "Posts", link: "posts" },
-  { text: "Gallery", link: "gallery" },
-  { text: "Todos", link: "todos" },
-];
-
-export default function DrawerAppBar(props: Props) {
+export default function DrawerAppBar(props: { window?: () => Window }) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -74,7 +64,7 @@ export default function DrawerAppBar(props: Props) {
 
   const theme = useTheme();
 
-  const { mode, setMode }: any = React.useContext(Context);
+  const { mode, setMode }: any = useContext(Context);
 
   return (
     <Box display="flex">
@@ -141,7 +131,7 @@ export default function DrawerAppBar(props: Props) {
             {mode === "dark" ? (
               <WbSunny fontSize="inherit" />
             ) : (
-              <Brightness4 fontSize="inherit" />
+              <Brightness4 fontSize="inherit" sx={{ color: "white" }} />
             )}
           </IconButton>
         </Toolbar>
@@ -153,7 +143,7 @@ export default function DrawerAppBar(props: Props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },

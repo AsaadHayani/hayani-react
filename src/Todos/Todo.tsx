@@ -17,7 +17,7 @@ interface Todo {
 }
 
 function Todo() {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
   const theme = useTheme();
 

@@ -9,32 +9,10 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import { OpenInNew } from "@mui/icons-material";
+import { itemsAboutPage } from "../components/assets";
 
 const About = () => {
-  const items = [
-    { text: "Address: Turkey, Gaziantep" },
-    {
-      text: "Whatsapp",
-      link: "https://wa.me/+306993352454",
-      linkText: "My Phone",
-    },
-    {
-      text: "Email",
-      link: "mailto:asaad99hayani@gmail.com",
-      linkText: "My Email",
-    },
-    {
-      text: "LinkedIn",
-      link: "https://www.linkedin.com/in/as3d-7ayani/",
-      linkText: "Asaad Hayani",
-    },
-    {
-      text: "Github",
-      link: "https://github.com/AsaadHayani",
-      linkText: "Asaad Hayani",
-    },
-  ];
-
   const theme = useTheme();
 
   return (
@@ -58,7 +36,7 @@ const About = () => {
                 C# WinForms.
               </Typography>
               <List>
-                {items.map((item) => (
+                {itemsAboutPage.map((item) => (
                   <Box key={item.text} display="flex" gap={1}>
                     <Check color="primary" />
                     <ListItem disablePadding sx={{ width: "auto" }}>
@@ -74,6 +52,9 @@ const About = () => {
                       rel="noopener noreferrer"
                     >
                       {item.linkText}
+                      {item.linkText != null && (
+                        <OpenInNew sx={{ ml: "5px" }} />
+                      )}
                     </a>
                   </Box>
                 ))}

@@ -1,9 +1,10 @@
 import { Backdrop, CircularProgress } from "@mui/material";
+import { Dispatch } from "react";
 
-type Props = {
-  open: any;
-  setOpen: any;
-};
+interface Props {
+  open: boolean;
+  setOpen: Dispatch<React.SetStateAction<boolean>>;
+}
 
 const Loading = ({ open, setOpen }: Props) => {
   return (

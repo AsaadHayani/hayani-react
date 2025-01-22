@@ -1,44 +1,9 @@
 import { Facebook, GitHub, LinkedIn } from "@mui/icons-material";
 import { Box, Card, Grid, List, ListItem, useTheme } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import { itemsTeamPage } from "../components/assets";
 
 const Team = () => {
-  const items = [
-    {
-      name: "Asaad Hayani",
-      image: "https://i.pravatar.cc/300",
-      desc:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus id nihil sequi itaque, voluptatem nobis.",
-      social: {
-        facebook: "https://www.facebook.com/asaad.hayani.9/",
-        linkedin: "https://www.linkedin.com/in/as3d-7ayani/",
-        github: "https://github.com/AsaadHayani",
-      },
-    },
-    {
-      name: "Sami Khalil",
-      image: "https://i.pravatar.cc/301",
-      desc:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus id nihil sequi itaque, voluptatem nobis.",
-      social: {
-        facebook: "https://www.facebook.com/asaad.hayani.9/",
-        linkedin: "https://www.linkedin.com/in/as3d-hayani/",
-        github: "https://github.com/AsaadHayani",
-      },
-    },
-    {
-      name: "Ahmed Ismaeel",
-      image: "https://i.pravatar.cc/302",
-      desc:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus id nihil sequi itaque, voluptatem nobis.",
-      social: {
-        facebook: "https://www.facebook.com/asaad.hayani.9/",
-        linkedin: "https://www.linkedin.com/in/as3d-hayani/",
-        github: "https://github.com/AsaadHayani",
-      },
-    },
-  ];
-
   const theme = useTheme();
 
   return (
@@ -47,7 +12,7 @@ const Team = () => {
         Our Team
       </Typography>
       <Grid container spacing={2}>
-        {items.map((item) => {
+        {itemsTeamPage.map((item) => {
           return (
             <Grid item xs={12} md={4} key={item.name}>
               <Card className="item" key={item.name}>

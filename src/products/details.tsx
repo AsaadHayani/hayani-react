@@ -10,6 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Loading from "../components/Loading";
 import { useNavigate, useParams } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const DetailsProducts = () => {
   const theme = useTheme();
@@ -78,6 +79,7 @@ const DetailsProducts = () => {
         className="shadow"
         fullWidth
         onClick={() => navigate(-1)}
+        startIcon={<ArrowBackIcon />}
       >
         Products Page
       </Button>

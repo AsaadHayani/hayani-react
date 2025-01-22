@@ -44,7 +44,7 @@ const getDesignTokens = (mode: any) => ({
             main: "#fff9",
           },
           myBgc: {
-            main: "#333333",
+            main: "#001c07",
           },
         }),
   },

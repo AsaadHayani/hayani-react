@@ -1,14 +1,8 @@
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import { Box, Grid, IconButton, Typography, useTheme } from "@mui/material";
+import { imagesWorkPage } from "../components/assets";
 
 const Work = () => {
-  const images = [
-    "https://picsum.photos/180/101",
-    "https://picsum.photos/180/102",
-    "https://picsum.photos/180/103",
-    "https://picsum.photos/180/104",
-  ];
-
   const theme = useTheme();
 
   return (
@@ -22,19 +16,17 @@ const Work = () => {
         Our Works
       </Typography>
       <Grid container spacing={2}>
-        {images.map((src) => {
-          return (
-            <Grid item xs={12} md={3} key={src}>
-              <img src={src} alt="" key={src} />
-            </Grid>
-          );
-        })}
+        {imagesWorkPage.map((src) => (
+          <Grid item xs={12} md={3} key={src}>
+            <img src={src} alt="" key={src} />
+          </Grid>
+        ))}
       </Grid>
       <Box className="arrows" mt={2}>
         <IconButton onClick={() => console.log(1)}>
           <ChevronLeft color="primary" />
         </IconButton>
-        <IconButton onClick={() => console.log(1)}>
+        <IconButton onClick={() => console.log(2)}>
           <ChevronRight color="primary" />
         </IconButton>
       </Box>

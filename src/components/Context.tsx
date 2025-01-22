@@ -1,11 +1,32 @@
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import { createContext, useMemo, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useMemo,
+  useState,
+} from "react";
 import { getDesignTokens } from "./Theme";
 
-export const Context = createContext({});
+interface ContextTypeProps {
+  mode: string;
+  setMode: Dispatch<SetStateAction<string>>;
+}
 
-const ContextProvider = ({ children }: any) => {
-  const [mode, setMode] = useState(localStorage.getItem("mode") || "dark");
+interface ContextProviderProps {
+  children: ReactNode;
+}
+
+export const Context = createContext<ContextTypeProps>({
+  mode: "dark",
+  setMode: () => {},
+});
+
+const ContextProvider: React.FC<ContextProviderProps> = ({ children }) => {
+  const [mode, setMode] = useState<string>(
+    localStorage.getItem("mode") || "dark"
+  );
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
   return (
@@ -15,4 +36,5 @@ const ContextProvider = ({ children }: any) => {
     </ThemeProvider>
   );
 };
+
 export default ContextProvider;

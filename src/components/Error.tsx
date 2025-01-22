@@ -1,12 +1,8 @@
 import { Alert, Snackbar } from "@mui/material";
 
-type Props = {
-  error: any;
-};
-
-const Error = ({ error }: Props) => {
+const Error = ({ error }: { error: string | boolean }) => {
   return (
-    <Snackbar open={error} autoHideDuration={3000}>
+    <Snackbar open={!!error} autoHideDuration={3000}>
       <Alert variant="filled" severity="error">
         {error}
       </Alert>

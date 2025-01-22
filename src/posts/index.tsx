@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Container,
-  Paper,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Button, Container, IconButton, Paper } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -13,6 +6,9 @@ import Loading from "../components/Loading";
 import Success from "../components/Success";
 import TableMd from "./TableMd";
 import CardXs from "./CardXs";
+import { useState } from "react";
+import { GridOn, ViewDay } from "@mui/icons-material";
+import { toast } from "react-toastify";
 
 const Index = () => {
   const fetchPosts = async () => {
@@ -37,11 +33,16 @@ const Index = () => {
 
   const { mutate, isSuccess, isPending: pendingDel } = useMutation({
     mutationFn: (id: any) => deletePost(id),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posts"] }),
+    onSuccess: (_, id) => {
+      toast.success("Post deleted successfully");
+      queryClient.setQueryData(["posts"], (oldData: any) => {
+        if (!oldData) return [];
+        return oldData.filter((post: any) => post.id !== id);
+      });
+    },
   });
 
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
 
   return (
     <Container>
@@ -49,16 +50,31 @@ const Index = () => {
       {pendingDel && <Loading open={pendingDel} setOpen={pendingDel} />}
       {isSuccess && <Success success={isSuccess} />}
       <Box sx={{ width: "100%", my: 2 }}>
-        <Link to="add">
-          <Button
-            variant="contained"
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 3,
+          }}
+        >
+          <Link to="add" style={{ flex: 9 }}>
+            <Button
+              variant="contained"
+              color="primary"
+              className="shadow"
+              sx={{ width: "100%" }}
+            >
+              Create Post
+            </Button>
+          </Link>
+          <IconButton
             color="primary"
-            className="shadow"
-            sx={{ width: "100%", mb: 2 }}
+            sx={{ flex: 1, borderRadius: 0 }}
+            onClick={() => setIsSmallScreen(!isSmallScreen)}
           >
-            Create Post
-          </Button>
-        </Link>
+            {isSmallScreen ? <ViewDay /> : <GridOn />}
+          </IconButton>
+        </Box>
         <Paper sx={{ width: "100%", mt: 2 }} className="shadow">
           {isSmallScreen ? (
             <CardXs {...{ mutate, posts }} />

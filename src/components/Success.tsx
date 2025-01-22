@@ -1,10 +1,6 @@
 import { Alert, Snackbar } from "@mui/material";
 
-type Props = {
-  success: boolean;
-};
-
-const Success = ({ success }: Props) => {
+const Success = ({ success }: { success: boolean }) => {
   return (
     <Snackbar open={success} autoHideDuration={3000}>
       <Alert variant="filled" severity="success">

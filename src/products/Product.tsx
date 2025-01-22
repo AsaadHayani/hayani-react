@@ -9,9 +9,22 @@ import {
   Button,
   useTheme,
 } from "@mui/material";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Product = ({ product }: any) => {
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  const numCharacters = 50;
+  const displayedText = isExpanded
+    ? product.description
+    : product.description.slice(0, numCharacters) +
+      (product.description.length > numCharacters ? "..." : "");
+
   const theme = useTheme();
   return (
     <Grid item xs={12} sm={4} lg={3}>
@@ -31,8 +44,13 @@ const Product = ({ product }: any) => {
               {product.title}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {product.description}
+              {displayedText}
             </Typography>
+            {product.description.length > numCharacters && (
+              <Button onClick={toggleExpand} size="small">
+                {isExpanded ? "Read less" : "Read more"}
+              </Button>
+            )}
           </CardContent>
         </CardActionArea>
         <CardActions>

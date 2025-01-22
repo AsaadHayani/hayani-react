@@ -7,8 +7,34 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import { useState } from "react";
 
 const Contact = () => {
+  const [result, setResult] = useState<string>("");
+
+  const onSubmit = async (event: any) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "29aa4a51-257d-4ae8-bdb8-33ba45792408");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
   const theme = useTheme();
   return (
     <Box p={2} textAlign="center" bgcolor={theme.palette.myBgc.main}>
@@ -16,14 +42,14 @@ const Contact = () => {
         <Typography variant="h4" color="primary" textAlign="center" my={2}>
           Contact Us
         </Typography>
-        <Box component="form">
+        <Box component="form" onSubmit={onSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <TextField
                 label="Firsta name"
                 required
-                type="email"
-                name="cc"
+                type="text"
+                name="name"
                 size="small"
                 fullWidth
               />
@@ -32,8 +58,7 @@ const Contact = () => {
             <Grid item xs={12} md={6}>
               <TextField
                 label="Last name"
-                required
-                type="email"
+                type="text"
                 name="bcc"
                 size="small"
                 fullWidth
@@ -44,7 +69,7 @@ const Contact = () => {
               <TextField
                 type="email"
                 required
-                name="to"
+                name="email"
                 label="Email"
                 size="small"
                 fullWidth
@@ -55,7 +80,6 @@ const Contact = () => {
               <TextField
                 label="Phone"
                 type="number"
-                required
                 name="subject"
                 size="small"
                 fullWidth
@@ -69,11 +93,20 @@ const Contact = () => {
                 rows={10}
                 variant="outlined"
                 fullWidth
-                name="body"
+                name="message"
+                required
               />
             </Grid>
           </Grid>
-          <Button variant="contained" color="primary" sx={{ mt: 2 }}>
+          <Typography variant="body1" color="primary">
+            {result}
+          </Typography>
+          <Button
+            variant="contained"
+            type="submit"
+            color="primary"
+            sx={{ mt: 2 }}
+          >
             Send
           </Button>
         </Box>

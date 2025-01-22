@@ -8,14 +8,22 @@ import {
   TableBody,
   Button,
 } from "@mui/material";
+import { FormEvent } from "react";
 import { Link } from "react-router-dom";
 
 const headCell: string[] = ["Title", "Body", "Details", "Update", "Delete"];
 
-type Props = {
+interface Props {
   mutate: any;
   posts: [];
-};
+}
+
+interface PostProps {
+  id: number;
+  title: string;
+  body: string;
+}
+
 const TableMd = ({ mutate, posts }: Props) => {
   return (
     <TableContainer>
@@ -39,52 +47,50 @@ const TableMd = ({ mutate, posts }: Props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {posts?.map((post: any) => {
-            return (
-              <TableRow hover key={post.id}>
-                <TableCell padding="checkbox">
-                  <Checkbox color="primary" />
-                </TableCell>
-                <TableCell align="center">{post.title}</TableCell>
-                <TableCell align="center">{post.body}</TableCell>
-                <TableCell align="center">
-                  <Link to={`${post.id}`}>
-                    <Button
-                      variant="contained"
-                      color="success"
-                      className="shadow"
-                    >
-                      Details
-                    </Button>
-                  </Link>
-                </TableCell>
-                <TableCell align="center">
-                  <Link to={`edit/${post.id}`}>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className="shadow"
-                    >
-                      Update
-                    </Button>
-                  </Link>
-                </TableCell>
-                <TableCell align="center">
+          {posts?.map((post: PostProps) => (
+            <TableRow hover key={post.id}>
+              <TableCell padding="checkbox">
+                <Checkbox color="primary" />
+              </TableCell>
+              <TableCell align="center">{post.title}</TableCell>
+              <TableCell align="center">{post.body}</TableCell>
+              <TableCell align="center">
+                <Link to={`${post.id}`}>
                   <Button
                     variant="contained"
-                    color="error"
+                    color="success"
                     className="shadow"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      mutate(post.id);
-                    }}
                   >
-                    Delete
+                    Details
                   </Button>
-                </TableCell>
-              </TableRow>
-            );
-          })}
+                </Link>
+              </TableCell>
+              <TableCell align="center">
+                <Link to={`edit/${post.id}`}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className="shadow"
+                  >
+                    Update
+                  </Button>
+                </Link>
+              </TableCell>
+              <TableCell align="center">
+                <Button
+                  variant="contained"
+                  color="error"
+                  className="shadow"
+                  onClick={(e: FormEvent) => {
+                    e.preventDefault();
+                    mutate(post.id);
+                  }}
+                >
+                  Delete
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

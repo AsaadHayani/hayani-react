@@ -9,36 +9,18 @@ import {
 } from "@mui/material";
 import "./gallery.css";
 import { useState } from "react";
+import { imagesGalley } from "../components/assets";
+
+interface SliderImgProps {
+  id: number;
+  src: string;
+}
 
 const Gallery = () => {
-  const imgs = [
-    {
-      id: 1,
-      src: "https://picsum.photos/200/100",
-    },
-    {
-      id: 2,
-      src: "https://picsum.photos/201/100",
-    },
-    {
-      id: 3,
-      src: "https://picsum.photos/202/100",
-    },
-    {
-      id: 4,
-      src: "https://picsum.photos/203/100",
-    },
-    {
-      id: 5,
-      src: "https://picsum.photos/204/100",
-    },
-  ];
-
-  const [sliderData, setSliderData] = useState(imgs[3]);
+  const [sliderData, setSliderData] = useState<SliderImgProps>(imagesGalley[3]);
 
   const clickImg = (id: number) => {
-    // console.log(id);
-    const slider = imgs[id];
+    const slider = imagesGalley[id];
     setSliderData(slider);
   };
 
@@ -71,7 +53,7 @@ const Gallery = () => {
         <Divider sx={{ borderColor: theme.palette.primary.main, my: 2 }} />
         {isSmallScreen ? (
           <Grid container spacing={2}>
-            {imgs.map((img, id) => (
+            {imagesGalley.map((img, id) => (
               <Grid key={img.id} item xs={12}>
                 <img
                   src={img.src}
@@ -93,7 +75,7 @@ const Gallery = () => {
           </Grid>
         ) : (
           <Box display="flex" justifyContent="space-evenly" gap={2}>
-            {imgs.map((img, id) => (
+            {imagesGalley.map((img, id) => (
               <Box key={img.id}>
                 <img
                   src={img.src}
